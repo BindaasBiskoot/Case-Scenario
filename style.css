@@ -283,3 +283,26 @@ p {
 @keyframes draw {
   to { stroke-dashoffset: 0; }
 }
+
+/* Case Closed Screen */
+.case-closed {
+  margin-top: 36px;
+  padding: 22px;
+  border-top: 2px dashed #d6336c;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.case-closed h2 {
+  color: #b01c54;
+  margin-bottom: 10px;
+}
+
+.case-closed p {
+  font-size: 16px;
+  color: #4a1f32;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
