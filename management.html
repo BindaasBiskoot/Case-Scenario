@@ -7,20 +7,39 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="card">
-<h1 class="type" data-text="Management Options"></h1>
 
-<img id="proposalGif" src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif" class="gif">
+  <h1 id="managementHeading" class="type" data-text="Management Options"></h1>
 
-<h2 class="type delay" data-text="Will you be my Valentine?"></h2>
+  <img
+    id="proposalGif"
+    class="gif"
+    src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif"
+    alt="Begging puppy"
+  >
 
-<div class="buttons">
-<button id="yesBtn">Yes 💖</button>
-<button id="noBtn">No ❌</button>
+  <!-- Question appears AFTER pause -->
+  <h2 id="question"
+      class="type delayed-question"
+      data-text="Will you be my Valentine?"
+      style="display:none;">
+  </h2>
+
+  <div class="buttons">
+    <button id="yesBtn" class="pulse" style="display:none;">Yes 💖</button>
+    <button id="noBtn" style="display:none;">No ❌</button>
+  </div>
+
+  <!-- Appears AFTER Yes -->
+  <p id="outcome" class="outcome" style="display:none;">
+    Management accepted. Prognosis excellent.
+  </p>
+
+  <p class="signature">— Dr. <span>Gowrie</span></p>
+
 </div>
 
-<p class="signature">— Dr. <span>Gowrie</span></p>
-</div>
 <script src="script.js"></script>
 </body>
 </html>
