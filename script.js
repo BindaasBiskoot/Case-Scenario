@@ -73,6 +73,7 @@ if (ecgLine && heartShape) {
 
       document.getElementById("outcome").style.display = "block";
       document.getElementById("stamp").style.display = "inline-block";
+      document.getElementById("caseClosed").style.display = "block";
     });
   }
 
