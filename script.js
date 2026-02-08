@@ -1,28 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* Typing animation */
+  /* Calm typing animation */
   const typeElements = document.querySelectorAll(".type");
   let delay = 0;
 
   typeElements.forEach(el => {
     const text = el.dataset.text;
     setTimeout(() => typeText(el, text), delay);
-    delay += text.length * 60 + 400;
+    delay += text.length * 70 + 400;
   });
 
   function typeText(el, text) {
     el.textContent = "";
-    el.classList.add("cursor");
     let i = 0;
-
     const interval = setInterval(() => {
       el.textContent += text.charAt(i);
       i++;
-      if (i === text.length) {
-        clearInterval(interval);
-        el.classList.remove("cursor");
-      }
-    }, 60);
+      if (i === text.length) clearInterval(interval);
+    }, 70);
+  }
+
+  /* ECG → Hearts */
+  const ecgLine = document.getElementById("ecgLine");
+  const heartLine = document.getElementById("heartLine");
+
+  if (ecgLine && heartLine) {
+    setTimeout(() => {
+      ecgLine.style.display = "none";
+      heartLine.style.display = "block";
+    }, 2600);
   }
 
   const question = document.getElementById("question");
@@ -30,46 +36,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("noBtn");
   const card = document.querySelector(".card");
 
-  /* Show question + buttons after pause */
+  /* Show proposal after pause */
   if (question && yesBtn && noBtn) {
     setTimeout(() => {
       question.style.display = "block";
       yesBtn.style.display = "inline-block";
       noBtn.style.display = "inline-block";
-    }, 3000);
+    }, 3200);
   }
 
-  /* EXTREME PANIC NO BUTTON */
+  /* Extreme panic NO button */
   if (noBtn && card) {
     noBtn.addEventListener("mouseover", () => {
       const cardRect = card.getBoundingClientRect();
-      const btnWidth = noBtn.offsetWidth;
-      const btnHeight = noBtn.offsetHeight;
-
-      const maxX = cardRect.width - btnWidth;
-      const maxY = cardRect.height - btnHeight - 80;
+      const maxX = cardRect.width - noBtn.offsetWidth;
+      const maxY = cardRect.height - noBtn.offsetHeight - 60;
 
       noBtn.style.left = Math.random() * maxX + "px";
       noBtn.style.top = Math.random() * maxY + "px";
     });
   }
 
-  /* YES button logic */
+  /* YES button celebration */
   if (yesBtn) {
     yesBtn.addEventListener("click", () => {
 
-      // Dancing happy puppy GIF 🐕🎉
+      confetti({
+        particleCount: 140,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
       document.getElementById("proposalGif").src =
         "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
 
-      // Remove heading + question + buttons
       document.getElementById("managementHeading").style.display = "none";
-      document.getElementById("question").style.display = "none";
+      question.style.display = "none";
       yesBtn.style.display = "none";
       noBtn.style.display = "none";
 
-      // Show outcome
       document.getElementById("outcome").style.display = "block";
+      document.getElementById("stamp").style.display = "inline-block";
     });
   }
 
