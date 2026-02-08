@@ -1,0 +1,19 @@
+assessment.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h1 class="type" data-text="Assessment"></h1>
+<p class="type delay" data-text="Symptoms are chronic, progressive, and worsen with distance. Partial relief achieved through hugs, calls, and prolonged eye contact."></p>
+<a class="next" href="labs.html">Proceed →</a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

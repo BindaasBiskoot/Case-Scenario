@@ -1,0 +1,86 @@
+style.css
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffeef3;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+  background: white;
+  min-height: 100vh;
+}
+
+.next, button {
+  margin-top: 24px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #d6336c;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+button#yesBtn { background: #28a745; }
+button#noBtn {
+  background: #dc3545;
+  position: absolute;
+}
+
+.buttons {
+  position: relative;
+  height: 80px;
+}
+
+.type {
+  min-height: 1.2em;
+}
+
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ECG */
+.ecg-container {
+  margin: 20px 0;
+}
+
+.ecg polyline {
+  fill: none;
+  stroke: #d6336c;
+  stroke-width: 3;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: ecg 2s linear infinite;
+}
+
+@keyframes ecg {
+  to { stroke-dashoffset: 0; }
+}
+
+/* GIF */
+.gif {
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+/* Signature */
+.signature {
+  margin-top: 40px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 28px;
+  color: #555;
+}
