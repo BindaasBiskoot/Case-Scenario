@@ -269,11 +269,24 @@ p {
   color: #6a2a44;
 }
 
-/* ECG drawing animation */
-#ecgLine, #heartShape {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw 2.5s ease forwards;
+/* ECG → Heart transition (Safari-safe) */
+#ecgLine {
+  animation: ecgDraw 2s ease forwards;
+}
+
+@keyframes ecgDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+#heartShape {
+  transition: opacity 1.2s ease;
+}
+
+/* Gentle heart pulse */
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
 }
 
 @keyframes draw {
