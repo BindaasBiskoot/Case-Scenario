@@ -1,0 +1,19 @@
+diagnosis.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnosis</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h1 class="type" data-text="Diagnosis"></h1>
+<p class="type delay" data-text="Acute, irreversible, terminal condition diagnosed as: Being Hopelessly in Love With You."></p>
+<a class="next" href="management.html">Proceed →</a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

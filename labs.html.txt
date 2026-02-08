@@ -1,0 +1,27 @@
+labs.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investigations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h1 class="type" data-text="Laboratory Investigations"></h1>
+
+<div class="ecg-container">
+  <svg viewBox="0 0 500 100" class="ecg">
+    <polyline points="0,50 50,50 70,20 90,80 110,50 500,50"/>
+  </svg>
+</div>
+
+<p class="type delay" data-text="Heart shows irregular rhythm in your presence. Dopamine levels elevated. Serum love levels critically high."></p>
+
+<a class="next" href="diagnosis.html">Proceed →</a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

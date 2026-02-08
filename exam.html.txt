@@ -1,0 +1,19 @@
+exam.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Examination</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h1 class="type" data-text="General Examination"></h1>
+<p class="type delay" data-text="Pulse increases on hearing your name. Blood pressure fluctuates based on reply time. Affect: lovestruck. Orientation: fully oriented… only to you."></p>
+<a class="next" href="assessment.html">Proceed →</a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
