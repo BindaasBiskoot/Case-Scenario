@@ -148,17 +148,13 @@ button#noBtn {
   line-height: 1.5;
 }
 
-/* ECG animation */
-.ecg polyline {
-  fill: none;
-  stroke: #d6336c;
-  stroke-width: 3;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: ecg 2s linear infinite;
+#ecgLine, #heartShape {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: draw 2.5s ease forwards;
 }
 
-@keyframes ecg {
+@keyframes draw {
   to { stroke-dashoffset: 0; }
 }
 
