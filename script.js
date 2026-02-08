@@ -1,26 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* Calm typing animation */
-  const typeElements = document.querySelectorAll(".type");
-  let delay = 0;
-
-  typeElements.forEach(el => {
-    const text = el.dataset.text;
-    setTimeout(() => typeText(el, text), delay);
-    delay += text.length * 70 + 400;
+  /* ===== CALM REVEAL ANIMATION ===== */
+  const elements = document.querySelectorAll(".type");
+  elements.forEach(el => {
+    el.textContent = el.dataset.text || el.textContent;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(6px)";
   });
 
-  function typeText(el, text) {
-    el.textContent = "";
-    let i = 0;
-    const interval = setInterval(() => {
-      el.textContent += text.charAt(i);
-      i++;
-      if (i === text.length) clearInterval(interval);
-    }, 70);
-  }
+  elements.forEach((el, index) => {
+    setTimeout(() => {
+      el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 500 + index * 400);
+  });
 
-  /* ECG → Hearts */
+  /* ===== ECG → HEARTS (labs page) ===== */
   const ecgLine = document.getElementById("ecgLine");
   const heartLine = document.getElementById("heartLine");
 
@@ -31,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2600);
   }
 
+  /* ===== MANAGEMENT PAGE LOGIC ===== */
   const question = document.getElementById("question");
   const yesBtn = document.getElementById("yesBtn");
   const noBtn = document.getElementById("noBtn");
   const card = document.querySelector(".card");
 
-  /* Show proposal after pause */
   if (question && yesBtn && noBtn) {
     setTimeout(() => {
       question.style.display = "block";
@@ -45,19 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3200);
   }
 
-  /* Extreme panic NO button */
+  /* EXTREME PANIC NO BUTTON */
   if (noBtn && card) {
     noBtn.addEventListener("mouseover", () => {
-      const cardRect = card.getBoundingClientRect();
-      const maxX = cardRect.width - noBtn.offsetWidth;
-      const maxY = cardRect.height - noBtn.offsetHeight - 60;
+      const rect = card.getBoundingClientRect();
+      const maxX = rect.width - noBtn.offsetWidth;
+      const maxY = rect.height - noBtn.offsetHeight - 60;
 
       noBtn.style.left = Math.random() * maxX + "px";
       noBtn.style.top = Math.random() * maxY + "px";
     });
   }
 
-  /* YES button celebration */
+  /* YES CELEBRATION */
   if (yesBtn) {
     yesBtn.addEventListener("click", () => {
 
