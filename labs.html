@@ -12,17 +12,28 @@
   <h1 class="type" data-text="Laboratory Investigations"></h1>
 
   <div class="ecg-container">
-    <svg viewBox="0 0 500 100" class="ecg">
-      <polyline id="ecgLine"
-        points="0,50 50,50 70,20 90,80 110,50 500,50"/>
-      <text id="heartLine"
-        x="50%" y="60%" text-anchor="middle"
-        font-size="24" fill="#d6336c"
-        style="display:none;">
-        ♥ ♥ ♥ ♥ ♥ ♥ ♥
-      </text>
-    </svg>
-  </div>
+  <svg viewBox="0 0 500 120" class="ecg">
+    
+    <!-- ECG LINE -->
+    <path id="ecgLine"
+      d="M0 60 L50 60 L70 20 L90 100 L110 60 L500 60"
+      fill="none"
+      stroke="#d6336c"
+      stroke-width="3"/>
+
+    <!-- HEART SHAPE -->
+    <path id="heartShape"
+      d="M250 85
+         C210 45, 160 60, 160 95
+         C160 130, 250 160, 250 160
+         C250 160, 340 130, 340 95
+         C340 60, 290 45, 250 85 Z"
+      fill="none"
+      stroke="#d6336c"
+      stroke-width="3"
+      style="display:none;"/>
+  </svg>
+</div>
 
   <p class="type delay"
      data-text="Heart rhythm becomes irregular in your presence. Dopamine levels elevated. Serum love levels critically high and persistent.">
