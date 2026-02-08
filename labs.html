@@ -7,19 +7,30 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="card">
-<h1 class="type" data-text="Laboratory Investigations"></h1>
 
-<div class="ecg-container">
-  <svg viewBox="0 0 500 100" class="ecg">
-    <polyline points="0,50 50,50 70,20 90,80 110,50 500,50"/>
-  </svg>
+<div class="card flashcard">
+  <h1 class="type" data-text="Laboratory Investigations"></h1>
+
+  <div class="ecg-container">
+    <svg viewBox="0 0 500 100" class="ecg">
+      <polyline id="ecgLine"
+        points="0,50 50,50 70,20 90,80 110,50 500,50"/>
+      <text id="heartLine"
+        x="50%" y="60%" text-anchor="middle"
+        font-size="24" fill="#d6336c"
+        style="display:none;">
+        ♥ ♥ ♥ ♥ ♥ ♥ ♥
+      </text>
+    </svg>
+  </div>
+
+  <p class="type delay"
+     data-text="Heart rhythm becomes irregular in your presence. Dopamine levels elevated. Serum love levels critically high and persistent.">
+  </p>
+
+  <a class="next" href="diagnosis.html">Proceed →</a>
 </div>
 
-<p class="type delay" data-text="Heart shows irregular rhythm in your presence. Dopamine levels elevated. Serum love levels critically high."></p>
-
-<a class="next" href="diagnosis.html">Proceed →</a>
-</div>
 <script src="script.js"></script>
 </body>
 </html>
