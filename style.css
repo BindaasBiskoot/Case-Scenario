@@ -110,3 +110,28 @@ button#noBtn {
   color: #28a745;
   font-size: 18px;
 }
+
+/* Flashcard pastel style */
+.flashcard {
+  background: #fff0f6;
+  border-radius: 18px;
+  box-shadow: 0 12px 25px rgba(214, 51, 108, 0.25);
+}
+
+/* Make NO button extra dramatic */
+#noBtn {
+  transition: transform 0.15s ease;
+}
+
+#noBtn:hover {
+  transform: rotate(15deg) scale(0.85);
+}
+
+/* Outcome text styling */
+.outcome {
+  margin-top: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f9e44;
+  line-height: 1.4;
+}
