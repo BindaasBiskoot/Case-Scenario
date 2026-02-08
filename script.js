@@ -16,16 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500 + index * 400);
   });
 
-  /* ===== ECG → HEARTS (labs page) ===== */
-  const ecgLine = document.getElementById("ecgLine");
-  const heartLine = document.getElementById("heartLine");
+/* ECG morphs into HEART */
+const ecgLine = document.getElementById("ecgLine");
+const heartShape = document.getElementById("heartShape");
 
-  if (ecgLine && heartLine) {
-    setTimeout(() => {
-      ecgLine.style.display = "none";
-      heartLine.style.display = "block";
-    }, 2600);
-  }
+if (ecgLine && heartShape) {
+  setTimeout(() => {
+    ecgLine.style.display = "none";
+    heartShape.style.display = "block";
+  }, 2800);
+}
 
   /* ===== MANAGEMENT PAGE LOGIC ===== */
   const question = document.getElementById("question");
