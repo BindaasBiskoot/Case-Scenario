@@ -135,3 +135,68 @@ button#noBtn {
   color: #2f9e44;
   line-height: 1.4;
 }
+
+/* Flashcard pastel style */
+.flashcard {
+  background: #fff0f6;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(214, 51, 108, 0.25);
+}
+
+/* Calm typing look */
+.type {
+  line-height: 1.5;
+}
+
+/* ECG animation */
+.ecg polyline {
+  fill: none;
+  stroke: #d6336c;
+  stroke-width: 3;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: ecg 2s linear infinite;
+}
+
+@keyframes ecg {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Gentle pulsing Yes button */
+.pulse {
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Extreme NO button drama */
+#noBtn {
+  transition: transform 0.15s ease;
+}
+
+/* Outcome text */
+.outcome {
+  margin-top: 26px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f9e44;
+  line-height: 1.4;
+}
+
+/* Consultant Approved Stamp */
+.stamp {
+  margin-top: 22px;
+  display: inline-block;
+  padding: 10px 18px;
+  border: 3px solid #d6336c;
+  color: #d6336c;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+  border-radius: 6px;
+}
