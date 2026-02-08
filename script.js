@@ -25,24 +25,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 60);
   }
 
-  /* Show question + buttons after pause */
   const question = document.getElementById("question");
   const yesBtn = document.getElementById("yesBtn");
   const noBtn = document.getElementById("noBtn");
+  const card = document.querySelector(".card");
 
+  /* Show question + buttons after pause */
   if (question && yesBtn && noBtn) {
     setTimeout(() => {
       question.style.display = "block";
       yesBtn.style.display = "inline-block";
       noBtn.style.display = "inline-block";
-    }, 2500);
+    }, 3000);
   }
 
-  /* Dramatic NO button escape */
-  if (noBtn) {
+  /* EXTREME PANIC NO BUTTON */
+  if (noBtn && card) {
     noBtn.addEventListener("mouseover", () => {
-      noBtn.style.left = Math.random() * 220 + "px";
-      noBtn.style.top = Math.random() * 60 + "px";
+      const cardRect = card.getBoundingClientRect();
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = cardRect.width - btnWidth;
+      const maxY = cardRect.height - btnHeight - 80;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
     });
   }
 
@@ -50,19 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yesBtn) {
     yesBtn.addEventListener("click", () => {
 
-      // Change to HAPPY puppy GIF
+      // Dancing happy puppy GIF 🐕🎉
       document.getElementById("proposalGif").src =
-        "https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif";
+        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
 
-      // Hide heading
-      const heading = document.getElementById("managementHeading");
-      if (heading) heading.style.display = "none";
-
-      // Hide buttons
+      // Remove heading + question + buttons
+      document.getElementById("managementHeading").style.display = "none";
+      document.getElementById("question").style.display = "none";
       yesBtn.style.display = "none";
       noBtn.style.display = "none";
 
-      // Show outcome text
+      // Show outcome
       document.getElementById("outcome").style.display = "block";
     });
   }
