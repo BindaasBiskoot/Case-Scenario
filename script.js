@@ -16,15 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500 + index * 400);
   });
 
-/* ECG morphs into HEART */
+/* ECG fades into full heart (Safari-safe) */
 const ecgLine = document.getElementById("ecgLine");
 const heartShape = document.getElementById("heartShape");
 
 if (ecgLine && heartShape) {
   setTimeout(() => {
-    ecgLine.style.display = "none";
-    heartShape.style.display = "block";
-  }, 2800);
+    ecgLine.style.opacity = "0";
+    heartShape.style.opacity = "1";
+    heartShape.style.animation = "heartPulse 1.6s ease infinite";
+  }, 2200);
 }
 
   /* ===== MANAGEMENT PAGE LOGIC ===== */
