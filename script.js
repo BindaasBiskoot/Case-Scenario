@@ -54,27 +54,29 @@ if (ecgLine && heartShape) {
   }
 
   /* YES CELEBRATION */
-  if (yesBtn) {
-    yesBtn.addEventListener("click", () => {
+if (yesBtn) {
+  yesBtn.addEventListener("click", () => {
 
-      confetti({
-        particleCount: 140,
-        spread: 100,
-        origin: { y: 0.6 }
-      });
-
-      document.getElementById("proposalGif").src =
-        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
-
-      document.getElementById("managementHeading").style.display = "none";
-      question.style.display = "none";
-      yesBtn.style.display = "none";
-      noBtn.style.display = "none";
-
-      document.getElementById("outcome").style.display = "block";
-      document.getElementById("stamp").style.display = "inline-block";
-      document.getElementById("caseClosed").style.display = "block";
+    confetti({
+      particleCount: 140,
+      spread: 100,
+      origin: { y: 0.6 }
     });
-  }
+
+    document.getElementById("proposalGif").src =
+      "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
+
+    document.getElementById("managementHeading").style.display = "none";
+    question.style.display = "none";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+
+    document.getElementById("outcome").style.display = "block";
+    document.getElementById("stamp").style.display = "inline-block";
+
+    // ✅ CASE CLOSED — THIS WAS MISSING / NOT FIRING
+    document.getElementById("caseClosed").style.display = "block";
+  });
+}
 
 });
