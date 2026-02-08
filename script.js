@@ -1,5 +1,3 @@
-script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll(".type");
   let delay = 0;
