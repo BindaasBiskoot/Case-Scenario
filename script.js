@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".type");
+
+  /* Typing animation */
+  const typeElements = document.querySelectorAll(".type");
   let delay = 0;
 
-  elements.forEach(el => {
+  typeElements.forEach(el => {
     const text = el.dataset.text;
-    setTimeout(() => type(el, text), delay);
-    delay += text.length * 60 + 300;
+    setTimeout(() => typeText(el, text), delay);
+    delay += text.length * 60 + 400;
   });
 
-  function type(el, text) {
+  function typeText(el, text) {
+    el.textContent = "";
     el.classList.add("cursor");
     let i = 0;
+
     const interval = setInterval(() => {
       el.textContent += text.charAt(i);
       i++;
@@ -21,21 +25,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 60);
   }
 
+  /* Show question + buttons after pause */
+  const question = document.getElementById("question");
+  const yesBtn = document.getElementById("yesBtn");
   const noBtn = document.getElementById("noBtn");
+
+  if (question && yesBtn && noBtn) {
+    setTimeout(() => {
+      question.style.display = "block";
+      yesBtn.style.display = "inline-block";
+      noBtn.style.display = "inline-block";
+    }, 2500);
+  }
+
+  /* Dramatic NO button escape */
   if (noBtn) {
     noBtn.addEventListener("mouseover", () => {
-      noBtn.style.left = Math.random() * 200 + "px";
-      noBtn.style.top = Math.random() * 50 + "px";
+      noBtn.style.left = Math.random() * 220 + "px";
+      noBtn.style.top = Math.random() * 60 + "px";
     });
   }
 
-  const yesBtn = document.getElementById("yesBtn");
+  /* YES button logic */
   if (yesBtn) {
     yesBtn.addEventListener("click", () => {
+
+      // Change to HAPPY puppy GIF
       document.getElementById("proposalGif").src =
-        "https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif";
-      yesBtn.disabled = true;
+        "https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif";
+
+      // Hide heading
+      const heading = document.getElementById("managementHeading");
+      if (heading) heading.style.display = "none";
+
+      // Hide buttons
+      yesBtn.style.display = "none";
       noBtn.style.display = "none";
+
+      // Show outcome text
+      document.getElementById("outcome").style.display = "block";
     });
   }
+
 });
