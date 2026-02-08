@@ -200,3 +200,75 @@ button#noBtn {
   opacity: 0.85;
   border-radius: 6px;
 }
+
+/* ===== GLOBAL FLASHCARD LAYOUT ===== */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffe6ef;
+  display: flex;
+  justify-content: center;
+}
+
+/* Flashcard container */
+.card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background: #fff0f6;
+  border: 3px solid #d6336c;   /* dark pink border */
+  border-radius: 20px;
+  padding: 26px 22px 32px;
+  box-shadow: 0 16px 30px rgba(214, 51, 108, 0.25);
+  text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+  color: #b01c54;
+  margin-bottom: 16px;
+}
+
+/* Paragraphs */
+p {
+  color: #4a1f32;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Buttons & links */
+.next, button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  background: #d6336c;
+  color: white;
+  text-decoration: none;
+}
+
+/* Buttons container */
+.buttons {
+  position: relative;
+  height: 90px;
+  margin-top: 20px;
+}
+
+/* GIF */
+.gif {
+  width: 100%;
+  max-width: 260px;
+  margin: 22px auto;
+}
+
+/* Signature */
+.signature {
+  margin-top: 42px;
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  color: #6a2a44;
+}
