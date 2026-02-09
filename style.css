@@ -1,164 +1,107 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #ffeef3;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffe6ef;
   display: flex;
   justify-content: center;
 }
 
+/* ===== FLASHCARD STACK CONTAINER ===== */
 .card {
+  position: relative;
   width: 100%;
   max-width: 420px;
-  padding: 24px;
+
+  background: #fff0f6;
+  border: 3px solid #d6336c;
+  border-radius: 20px;
+
+  padding: 28px 22px 32px;
+  margin: 48px auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  background: white;
-  min-height: 100vh;
+
+  box-shadow: 0 16px 30px rgba(214, 51, 108, 0.25);
 }
 
-.next, button {
-  margin-top: 24px;
-  padding: 12px 18px;
-  border-radius: 8px;
-  border: none;
+/* ===== FLASHCARD STACK ILLUSION ===== */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: #ffeaf1;
+  border: 3px solid #e25588;
+  z-index: -1;
+}
+
+.card::before {
+  transform: translate(6px, 6px);
+  opacity: 0.55;
+}
+
+.card::after {
+  transform: translate(12px, 12px);
+  opacity: 0.35;
+}
+
+/* ===== CONTENT RHYTHM ===== */
+.card > * + * {
+  margin-top: 18px;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-size: 26px;
+  color: #b01c54;
+}
+
+h2 {
+  font-size: 22px;
+  color: #b01c54;
+}
+
+/* ===== TEXT ===== */
+p {
+  color: #4a1f32;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ===== BUTTONS & LINKS ===== */
+.next,
+button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 22px;
+
+  font-size: 16px;
+  font-weight: 600;
+
   background: #d6336c;
   color: white;
+  border: none;
+  border-radius: 10px;
   text-decoration: none;
-  font-size: 16px;
 }
 
-button#yesBtn { background: #28a745; }
-button#noBtn {
-  background: #dc3545;
-  position: absolute;
-}
-
+/* ===== BUTTON GROUP ===== */
 .buttons {
   position: relative;
-  height: 80px;
+  height: 90px;
+  margin-top: 20px;
 }
 
-.type {
-  min-height: 1.2em;
-}
-
-.cursor::after {
-  content: "|";
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* ECG */
-.ecg-container {
-  margin: 20px 0;
-}
-
-.ecg polyline {
-  fill: none;
-  stroke: #d6336c;
-  stroke-width: 3;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: ecg 2s linear infinite;
-}
-
-@keyframes ecg {
-  to { stroke-dashoffset: 0; }
-}
-
-/* GIF */
-.gif {
-  width: 100%;
-  max-width: 250px;
-  margin: 20px auto;
-}
-
-/* Signature */
-.signature {
-  margin-top: 40px;
-  font-family: 'Brush Script MT', cursive;
-  font-size: 28px;
-  color: #555;
-}
-
-/* Gentle pulsing Yes button */
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
-
-/* Dramatic NO button */
-#noBtn {
-  transition: transform 0.2s;
-}
-
-#noBtn:hover {
-  transform: rotate(-10deg) scale(0.9);
-}
-
-/* Outcome text */
-.outcome {
-  margin-top: 24px;
-  font-weight: bold;
-  color: #28a745;
-  font-size: 18px;
-}
-
-/* Flashcard pastel style */
-.flashcard {
-  background: #fff0f6;
-  border-radius: 18px;
-  box-shadow: 0 12px 25px rgba(214, 51, 108, 0.25);
-}
-
-/* Make NO button extra dramatic */
-#noBtn {
-  transition: transform 0.15s ease;
-}
-
-#noBtn:hover {
-  transform: rotate(15deg) scale(0.85);
-}
-
-/* Outcome text styling */
-.outcome {
-  margin-top: 28px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #2f9e44;
-  line-height: 1.4;
-}
-
-/* Flashcard pastel style */
-.flashcard {
-  background: #fff0f6;
-  border-radius: 18px;
-  box-shadow: 0 14px 28px rgba(214, 51, 108, 0.25);
-}
-
-/* Calm typing look */
-.type {
-  line-height: 1.5;
-}
-
-#ecgLine, #heartShape {
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  animation: draw 2.5s ease forwards;
-}
-
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
-}
-
-/* Gentle pulsing Yes button */
+/* ===== YES BUTTON PULSE ===== */
 .pulse {
   animation: pulse 1.6s infinite;
 }
@@ -169,149 +112,73 @@ button#noBtn {
   100% { transform: scale(1); }
 }
 
-/* Extreme NO button drama */
+/* ===== DRAMATIC NO BUTTON ===== */
 #noBtn {
+  position: absolute;
   transition: transform 0.15s ease;
 }
 
-/* Outcome text */
-.outcome {
-  margin-top: 26px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #2f9e44;
-  line-height: 1.4;
+/* ===== GIF ===== */
+.gif {
+  width: 100%;
+  max-width: 260px;
+  margin: 18px auto;
 }
 
-/* Consultant Approved Stamp */
+/* ===== ECG ===== */
+.ecg-container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== OUTCOME TEXT ===== */
+.outcome {
+  font-size: 17px;
+  font-weight: 600;
+  color: #2f9e44;
+  line-height: 1.5;
+}
+
+/* ===== CONSULTANT APPROVED STAMP ===== */
 .stamp {
   margin-top: 22px;
   display: inline-block;
   padding: 10px 18px;
+
   border: 3px solid #d6336c;
   color: #d6336c;
   font-weight: 700;
   letter-spacing: 2px;
+
   transform: rotate(-8deg);
   opacity: 0.85;
   border-radius: 6px;
 }
 
-/* ===== GLOBAL FLASHCARD LAYOUT ===== */
-
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #ffe6ef;
-  display: flex;
-  justify-content: center;
+/* ===== CASE CLOSED SECTION ===== */
+.case-closed {
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 2px dashed #d6336c;
 }
 
-/* Flashcard container */
-.card {
-  width: 100%;
-  max-width: 420px;
-  min-height: 100vh;
-  background: #fff0f6;
-  border: 3px solid #d6336c;   /* dark pink border */
-  border-radius: 20px;
-  padding: 26px 22px 32px;
-  box-shadow: 0 16px 30px rgba(214, 51, 108, 0.25);
-  text-align: center;
+.case-closed h2 {
+  margin-bottom: 10px;
 }
 
-/* Headings */
-h1, h2 {
-  color: #b01c54;
-  margin-bottom: 16px;
-}
-
-/* Paragraphs */
-p {
-  color: #4a1f32;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Buttons & links */
-.next, button {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  background: #d6336c;
-  color: white;
-  text-decoration: none;
-}
-
-/* Buttons container */
-.buttons {
-  position: relative;
-  height: 90px;
-  margin-top: 20px;
-}
-
-/* GIF */
-.gif {
-  width: 100%;
-  max-width: 260px;
-  margin: 22px auto;
-}
-
-/* Signature */
+/* ===== SIGNATURE ===== */
 .signature {
-  margin-top: 42px;
+  margin-top: 40px;
   font-family: "Brush Script MT", cursive;
   font-size: 28px;
   color: #6a2a44;
 }
 
-/* ECG → Heart transition (Safari-safe) */
-#ecgLine {
-  animation: ecgDraw 2s ease forwards;
-}
-
-@keyframes ecgDraw {
-  to { stroke-dashoffset: 0; }
-}
-
-#heartShape {
-  transition: opacity 1.2s ease;
-}
-
-/* Gentle heart pulse */
-@keyframes heartPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-  100% { transform: scale(1); }
-}
-
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
-}
-
-/* Case Closed Screen */
-.case-closed {
-  margin-top: 36px;
-  padding: 22px;
-  border-top: 2px dashed #d6336c;
-  animation: fadeIn 1.2s ease forwards;
-}
-
-.case-closed h2 {
-  color: #b01c54;
-  margin-bottom: 10px;
-}
-
-.case-closed p {
-  font-size: 16px;
-  color: #4a1f32;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ===== SMALL SCREENS ===== */
+@media (max-height: 700px) {
+  .card {
+    margin: 28px auto;
+    padding: 24px 20px 28px;
+  }
 }
